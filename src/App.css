@@ -14,11 +14,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
 
 .app-name{
-  margin-top: -30px;
-  margin-bottom: 80px;
+  margin-top: -10px;
+  margin-bottom: 50px;
 }
 
 .city-input{
@@ -34,6 +35,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
 
 .weather-icon{
@@ -44,4 +46,11 @@
 
 h1{
   font-size: 50px;
+}
+
+.submit-button{
+  height: 50px;
+  width: 200px;
+  margin-top: 20px;
+  font-size: 20px;
 }
