@@ -1,56 +1,55 @@
 .App{
+  height: 800px;
+  width: 500px;
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.search-bar{
+  height: 50px;
+  width: 400px;
+  border: 2px solid white;
+}
+
+.weather-image{
+  height: 100px;
+  width: 100px;
+  border: 2px solid white;
+}
+
+.temp-container{
+  height: 50px;
+  width: 50px;
+  border: 2px solid white;
+}
+
+.city-container{
+  height: 100px;
+  width: 250px;
+  border: 2px solid white;
+}
+
+.additional-info{
+  height: 100px;
+  width: 400px;
+  border: 2px solid white;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  min-height: 100vh;
-  min-width: 100vw;
 }
 
-.App .text-card{
-  height: 250px;
-  width: 400px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
+.humidity-container{
+  height: 70px;
+  width: 170px;
+  border: 2px solid white;
 }
 
-.app-name{
-  margin-top: -10px;
-  margin-bottom: 50px;
-}
+.wind-speed-container{
+  height: 70px;
+  width: 170px;
+  border: 2px solid white;
 
-.city-input{
-  font-size: 1.8rem;
-  line-height: 2.4rem;
-}
-
-.App .temp-card{
-  height: 500px;
-  width: 400px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-}
-
-.weather-icon{
-  height: 100px;
-  width: 100px;
-  border: 2px solid black;
-}
-
-h1{
-  font-size: 50px;
-}
-
-.submit-button{
-  height: 50px;
-  width: 200px;
-  margin-top: 20px;
-  font-size: 20px;
 }

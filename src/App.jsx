@@ -4,36 +4,41 @@ import axios from "axios";
 
 function App() {
   const [cityName, setcityName] = useState("");
+  const [finalCity, setfinalCity] = useState("");
+  const [temp, settemp] = useState();
 
-  const apiKey = "32090a39b13339be996b7a6f7d859e5b";
+  const apiKey = "448b9f1fbc52dc166a3613b1261d45d3";
 
   function handleSubmit(e) {
     e.preventDefault();
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`
+      )
+      .then(function (response) {
+        console.log(response);
+        setfinalCity(cityName.charAt(0).toUpperCase() + cityName.slice(1));
+        settemp(response.data.main.temp);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   return (
-    <span className="App">
-      <form className="text-card" onSubmit={handleSubmit}>
-        <h1 className="app-name">Weather App</h1>
-        <input
-          className="city-input"
-          placeholder="Enter City Name"
-          value={cityName}
-          onChange={(e) => {
-            setcityName(e.target.value);
-          }}
-        ></input>
-        <button type="submit" className="submit-button">
-          Submit
-        </button>
-      </form>
-      <div className="temp-card">
-        <h1 className="location">New Delhi</h1>
-        <div className="weather-icon"></div>
-        <h1 className="temperature">13°C</h1>
-        <h1 className="weather-description">Cloudy</h1>
+    <div className="App">
+      <div className="search-bar">
+        <input className="city-input"></input>
+        <button>submit</button>
       </div>
-    </span>
+      <div className="weather-image"></div>
+      <div className="temp-container"></div>
+      <div className="city-container"></div>
+      <div className="additional-info">
+        <div className="humidity-container"></div>
+        <div className="wind-speed-container"></div>
+      </div>
+    </div>
   );
 }
 
