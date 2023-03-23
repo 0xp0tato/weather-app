@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "./App.css";
 import axios from "axios";
+import { IoIosSearch } from "react-icons/io";
+import { BsFillSunFill } from "react-icons/bs";
 
 function App() {
   const [cityName, setcityName] = useState("");
-  const [finalCity, setfinalCity] = useState("");
-  const [temp, settemp] = useState();
+  const [finalCity, setfinalCity] = useState("London");
+  const [temp, settemp] = useState(10);
 
   const apiKey = "448b9f1fbc52dc166a3613b1261d45d3";
 
@@ -27,13 +29,17 @@ function App() {
 
   return (
     <div className="App">
-      <div className="search-bar">
+      <div className="search-bar-container">
         <input className="city-input"></input>
-        <button>submit</button>
+        <button type="submit" onClick={handleSubmit}>
+          <IoIosSearch style={{ fontSize: "40px" }} />
+        </button>
       </div>
-      <div className="weather-image"></div>
-      <div className="temp-container"></div>
-      <div className="city-container"></div>
+      <div className="weather-image">
+        <BsFillSunFill style={{ fontSize: "5rem" }} />
+      </div>
+      <div className="temp-container">{temp}°C</div>
+      <div className="city-container">{finalCity}</div>
       <div className="additional-info">
         <div className="humidity-container"></div>
         <div className="wind-speed-container"></div>
