@@ -3,11 +3,13 @@ import "./App.css";
 import axios from "axios";
 import { IoIosSearch } from "react-icons/io";
 import { BsFillSunFill } from "react-icons/bs";
+import { SiWindicss } from "react-icons/si";
+import { WiHumidity } from "react-icons/wi";
 
 function App() {
   const [cityName, setcityName] = useState("");
-  const [finalCity, setfinalCity] = useState("London");
-  const [temp, settemp] = useState(10);
+  const [finalCity, setfinalCity] = useState();
+  const [temp, settemp] = useState();
 
   const apiKey = "448b9f1fbc52dc166a3613b1261d45d3";
 
@@ -30,7 +32,11 @@ function App() {
   return (
     <div className="App">
       <div className="search-bar-container">
-        <input className="city-input"></input>
+        <input
+          className="city-input"
+          value={cityName}
+          onChange={(e) => setcityName(e.target.value)}
+        ></input>
         <button type="submit" onClick={handleSubmit}>
           <IoIosSearch style={{ fontSize: "40px" }} />
         </button>
@@ -38,11 +44,15 @@ function App() {
       <div className="weather-image">
         <BsFillSunFill style={{ fontSize: "5rem" }} />
       </div>
-      <div className="temp-container">{temp}°C</div>
+      <div className="temp-container">{temp && <p>{temp}°C</p>}</div>
       <div className="city-container">{finalCity}</div>
       <div className="additional-info">
-        <div className="humidity-container"></div>
-        <div className="wind-speed-container"></div>
+        <div className="humidity-container">
+          <WiHumidity style={{ fontSize: "70px", padding: "5px" }} />
+        </div>
+        <div className="wind-speed-container">
+          <SiWindicss style={{ fontSize: "50px", padding: "20px" }} />
+        </div>
       </div>
     </div>
   );
